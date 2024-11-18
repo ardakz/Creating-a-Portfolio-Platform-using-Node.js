@@ -1,0 +1,21 @@
+<% include('../layouts/main') %>
+
+<main class="container mt-5">
+    <h1 class="text-center">API Data</h1>
+    
+    <h2>Weather Data (London)</h2>
+    <ul>
+        <li>Temperature: <%= weatherData.main.temp %>°C</li>
+        <li>Feels Like: <%= weatherData.main.feels_like %>°C</li>
+        <li>Humidity: <%= weatherData.main.humidity %>%</li>
+        <li>Weather: <%= weatherData.weather[0].description %></li>
+    </ul>
+
+    <h2>Cryptocurrency Prices</h2>
+    <ul>
+        <li>Bitcoin: $<%= cryptoData.bitcoin.usd %></li>
+        <li>Ethereum: $<%= cryptoData.ethereum.usd %></li>
+    </ul>
+
+    <a href="/api/visualize" class="btn btn-primary mt-4">Visualize Data</a>
+</main>

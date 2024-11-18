@@ -1,0 +1,20 @@
+<% include('../layouts/main') %>
+
+<main class="container mt-5">
+    <h1 class="text-center">Edit Portfolio Item</h1>
+    <form method="POST" action="/portfolio/update/<%= item._id %>" class="mt-4">
+        <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input type="text" class="form-control" id="title" name="title" value="<%= item.title %>" required />
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <textarea class="form-control" id="description" name="description" rows="3" required><%= item.description %></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="images" class="form-label">Image URLs</label>
+            <input type="text" class="form-control" id="images" name="images" value="<%= item.images.join(', ') %>" required />
+        </div>
+        <button type="submit" class="btn btn-primary">Update Item</button>
+    </form>
+</main>

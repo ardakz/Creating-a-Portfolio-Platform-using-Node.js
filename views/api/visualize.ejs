@@ -1,0 +1,35 @@
+<% include('../layouts/main') %>
+
+<main class="container mt-5">
+    <h1 class="text-center">API Data Visualization</h1>
+    <canvas id="apiChart" width="400" height="200"></canvas>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const data = <%= JSON.stringify(data) %>;
+
+        const labels = data.map(item => item.label);
+        const values = data.map(item => item.value);
+
+        const ctx = document.getElementById('apiChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Weather Data (London)',
+                    data: values,
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+</main>

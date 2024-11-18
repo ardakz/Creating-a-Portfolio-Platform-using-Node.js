@@ -1,0 +1,24 @@
+<% include('../layouts/main') %>
+
+<main>
+    <h1 class="text-center">Portfolio</h1>
+    <div class="row mt-4">
+        <% items.forEach(item => { %>
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title"><%= item.title %></h5>
+                        <p class="card-text"><%= item.description %></p>
+                        <p><small>ID: <%= item._id %></small></p>
+                        <form method="GET" action="/portfolio/edit/<%= item._id %>" class="d-inline">
+                            <button type="submit" class="btn btn-warning">Edit</button>
+                        </form>
+                        <form method="POST" action="/portfolio/delete/<%= item._id %>" class="d-inline">
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+</main>
